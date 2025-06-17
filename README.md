@@ -1,7 +1,12 @@
 
+<<<<<<< HEAD
 # les delices d'alexandra - votre patisiere fav
+=======
+# les delices d'alexandra
+>>>>>>> 53d6c3067d29342450ecb2616659a860cbf12edb
 
 ## 🌟 Description
+  "   Votre destination gourmande pour des douceurs exquises et des créations pâtissières uniques."
 
 
 ## 🎨 Palette de couleurs
@@ -131,9 +136,12 @@ src/
 
 Pour toute question concernant ce projet :
 
+<<<<<<< HEAD
 - **Email** : contact@kreshop.fr
 - **Téléphone** : +241 77 36 44 91
 - **Adresse** : alibandeng libreville / Gabon
+=======
+>>>>>>> 53d6c3067d29342450ecb2616659a860cbf12edb
 
 ## 📄 Licence
 
