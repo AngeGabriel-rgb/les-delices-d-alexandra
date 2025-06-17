@@ -1,9 +1,9 @@
 
-# KRE Shop - Boutique de Vêtements
+# les delices d'alexandra
 
 ## 🌟 Description
+  "   Votre destination gourmande pour des douceurs exquises et des créations pâtissières uniques."
 
-KRE Shop est une application vitrine moderne et élégante pour une boutique de vêtements proposant des collections pour hommes et femmes. L'application présente un design responsive et professionnel avec une palette de couleurs sophistiquée.
 
 ## 🎨 Palette de couleurs
 
@@ -130,9 +130,6 @@ src/
 
 Pour toute question concernant ce projet :
 
-- **Email** : contact@kreshop.fr
-- **Téléphone** : +33 1 23 45 67 89
-- **Adresse** : 123 Rue de la Mode, 75001 Paris, France
 
 ## 📄 Licence
 
