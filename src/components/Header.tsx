@@ -16,26 +16,46 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="text-2xl font-bold bg-gradient-to-r from-kre-violet to-kre-pink-bright bg-clip-text text-transparent">
+        <div 
+          onClick={() => window.location.reload()}
+          className="text-2xl font-bold bg-gradient-to-r from-kre-violet to-kre-pink-bright bg-clip-text text-transparent cursor-pointer hover:opacity-80 transition-opacity duration-200"
+        >
           LES DELICES D'ALEXANDRA 
         </div>
-        
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-kre-violet transition-colors">
-            Accueil
-          </button>
-          <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-kre-violet transition-colors">
-            À propos
-          </button>
-          <button onClick={() => scrollToSection('gallery')} className="text-gray-700 hover:text-kre-violet transition-colors">
-            Galerie
-          </button>
-          <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-kre-violet transition-colors">
-            Contact
-          </button>
-        </nav>
-
+  <nav className="hidden md:flex space-x-8">
+  <button 
+    onClick={() => scrollToSection('home')} 
+    className="relative text-gray-700 hover:text-kre-violet transition-colors duration-300 group py-2"
+  >
+    Accueil
+    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-kre-violet to-kre-pink-bright transition-all duration-300 ease-out group-hover:w-full"></div>
+  </button>
+  
+  <button 
+    onClick={() => scrollToSection('about')} 
+    className="relative text-gray-700 hover:text-kre-violet transition-colors duration-300 group py-2"
+  >
+    À propos
+    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-kre-violet to-kre-pink-bright transition-all duration-300 ease-out group-hover:w-full"></div>
+  </button>
+  
+  <button 
+    onClick={() => scrollToSection('gallery')} 
+    className="relative text-gray-700 hover:text-kre-violet transition-colors duration-300 group py-2"
+  >
+    Galerie
+    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-kre-violet to-kre-pink-bright transition-all duration-300 ease-out group-hover:w-full"></div>
+  </button>
+  
+  <button 
+    onClick={() => scrollToSection('contact')} 
+    className="relative text-gray-700 hover:text-kre-violet transition-colors duration-300 group py-2"
+  >
+    Contact
+    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-kre-violet to-kre-pink-bright transition-all duration-300 ease-out group-hover:w-full"></div>
+  </button>
+</nav>
         {/* Mobile Menu Button */}
         <button
           className="md:hidden"

@@ -54,7 +54,15 @@ const Hero = () => {
               <div className="max-w-4xl px-4 animate-fade-in">
                 <h1 className="text-4xl md:text-6xl font-bold mb-4 drop-shadow-lg">{slide.title}</h1>
                 <p className="text-xl md:text-2xl mb-8 drop-shadow-md">{slide.subtitle}</p>
-                <button className="bg-white text-purple-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-100 hover:text-purple-700 transition-all duration-300 transform hover:scale-105">
+                <button 
+                  onClick={() => {
+                    const gallerySection = document.getElementById('gallery');
+                    if (gallerySection) {
+                      gallerySection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="bg-white text-purple-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-purple-100 hover:text-purple-700 transition-all duration-300 transform hover:scale-105"
+                >
                   Découvrir
                 </button>
               </div>
