@@ -1,9 +1,8 @@
 
-# KRE Shop - Boutique de Vêtements
+# les delices d'alexandra - votre patisiere fav
 
 ## 🌟 Description
 
-KRE Shop est une application vitrine moderne et élégante pour une boutique de vêtements proposant des collections pour hommes et femmes. L'application présente un design responsive et professionnel avec une palette de couleurs sophistiquée.
 
 ## 🎨 Palette de couleurs
 
@@ -29,6 +28,7 @@ KRE Shop est une application vitrine moderne et élégante pour une boutique de 
 - Modal de détails pour chaque produit
 - Effets de survol et animations
 - Catégorisation par genre
+- filtrage par produit 
 
 ### 📞 Section Contact
 - Formulaire de contact interactif
@@ -37,7 +37,7 @@ KRE Shop est une application vitrine moderne et élégante pour une boutique de 
 - Validation de formulaire avec notifications
 
 ### 🌐 Réseaux sociaux
-- Liens vers Facebook et Instagram
+- Liens vers Facebook et whatsapp
 - Icônes sociales dans le footer
 - Intégration des réseaux sociaux
 
@@ -63,7 +63,7 @@ L'application est entièrement responsive et s'adapte parfaitement à :
 
 ### Prérequis
 - Node.js (version 16 ou supérieure)
-- npm ou yarn
+- pnpm ou yarn
 
 ### Installation
 ```bash
@@ -71,13 +71,13 @@ L'application est entièrement responsive et s'adapte parfaitement à :
 git clone <votre-repository-url>
 
 # Naviguer dans le dossier
-cd kre-shop
+cd les delices d'alexandra
 
 # Installer les dépendances
-npm install
+pnpm install
 
 # Démarrer le serveur de développement
-npm run dev
+pnpm run dev
 ```
 
 L'application sera accessible sur `http://localhost:8080`
@@ -86,16 +86,16 @@ L'application sera accessible sur `http://localhost:8080`
 
 ```bash
 # Démarrage en mode développement
-npm run dev
+pnpm run dev
 
 # Build de production
-npm run build
+pnpm run build
 
 # Prévisualisation du build
-npm run preview
+pnpm run preview
 
 # Linting du code
-npm run lint
+pnpm run lint
 ```
 
 ## 🏗️ Structure du projet
@@ -111,6 +111,7 @@ src/
 │   └── Footer.tsx      # Pied de page
 ├── pages/              # Pages de l'application
 │   └── Index.tsx       # Page principale
+    --- productdetails  # une page detailler des produits avec liens pour commander sur whatsapp
 ├── hooks/              # Hooks personnalisés
 ├── lib/                # Utilitaires
 └── styles/             # Styles CSS
@@ -122,17 +123,17 @@ src/
 - [ ] Authentification utilisateur
 - [ ] Mode sombre
 - [ ] Recherche de produits
-- [ ] Filtres avancés
 - [ ] Système de favoris
 - [ ] Intégration e-commerce
+- [ ] systeme de paiement avec E-billing 
 
 ## 📞 Contact
 
 Pour toute question concernant ce projet :
 
 - **Email** : contact@kreshop.fr
-- **Téléphone** : +33 1 23 45 67 89
-- **Adresse** : 123 Rue de la Mode, 75001 Paris, France
+- **Téléphone** : +241 77 36 44 91
+- **Adresse** : alibandeng libreville / Gabon
 
 ## 📄 Licence
 
@@ -140,5 +141,5 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ---
 
-Développé avec ❤️ pour KRE Shop
+Développé avec ❤️ pour les delices d'alexandra 
 ```

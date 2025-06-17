@@ -1,8 +1,6 @@
 "use client"
 
-import type React from "react"
-
-import { useState } from "react"
+import React, { useState } from "react"
 import { Mail, Phone, MapPin, Send } from "lucide-react"
 import emailjs from "@emailjs/browser"
 import { useToast } from "@/hooks/use-toast"
@@ -17,36 +15,66 @@ const Contact = () => {
   })
   const [isLoading, setIsLoading] = useState(false)
 
+  // ========================================
+  // CONFIGURATION EMAILJS - REMPLACEZ VOS CLÉS ICI
+  // ========================================
+  const EMAILJS_CONFIG = {
+    serviceId: "service_mu1960v",        // Exemple: "service_abc123"
+    templateId: "template_qe67fhm",      // Exemple: "template_xyz789" 
+    publicKey: "gLE1xvpjusIK1EdsF",        // Exemple: "abcdef123456"
+    destinationEmail: "gabruielange748@gmail.com"
+  }
+
+  // Initialisation d'EmailJS (optionnel mais recommandé)
+  React.useEffect(() => {
+    emailjs.init(EMAILJS_CONFIG.publicKey)
+  }, [])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
 
     try {
-      // Configuration EmailJS pour Next.js
+      // Envoi avec EmailJS
       const result = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: "gabruielange748@gmail.com", // Email de destination
+          to_email: EMAILJS_CONFIG.destinationEmail,
+          reply_to: formData.email,
         },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+        EMAILJS_CONFIG.publicKey
       )
 
-      console.log("Email envoyé avec succès :", result.status, result.text)
+      console.log("✅ Email envoyé avec succès :", result.status, result.text)
+      
       toast({
         title: "Message envoyé !",
         description: "Nous vous répondrons dans les plus brefs délais.",
       })
+      
+      // Reset du formulaire
       setFormData({ name: "", email: "", subject: "", message: "" })
+      
     } catch (error) {
-      console.error("Erreur lors de l'envoi de l'email :", error)
+      console.error("❌ Erreur lors de l'envoi de l'email :", error)
+      
+      // Gestion d'erreur détaillée
+      let errorMessage = "Une erreur est survenue lors de l'envoi du message."
+      
+      if (error.text) {
+        errorMessage = `Erreur EmailJS: ${error.text}`
+      } else if (error.message) {
+        errorMessage = error.message
+      }
+      
       toast({
-        title: "Erreur",
-        description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+        title: "Erreur d'envoi",
+        description: errorMessage + " Veuillez réessayer ou nous contacter par WhatsApp.",
         variant: "destructive",
       })
     } finally {
@@ -58,6 +86,31 @@ const Contact = () => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
+    })
+  }
+
+  // Fonction de fallback WhatsApp
+  const sendViaWhatsApp = () => {
+    const phoneNumber = "24174504103" // Votre numéro WhatsApp
+    const message = `
+🌟 Nouveau message depuis le site web:
+
+👤 Nom: ${formData.name}
+📧 Email: ${formData.email}
+📋 Sujet: ${formData.subject}
+💬 Message: ${formData.message}
+
+Envoyé depuis le formulaire de contact.
+    `.trim()
+    
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    
+    window.open(whatsappUrl, '_blank')
+    
+    toast({
+      title: "Redirection WhatsApp",
+      description: "Message préparé pour WhatsApp. Cliquez sur 'Envoyer' dans WhatsApp.",
     })
   }
 
@@ -210,14 +263,32 @@ const Contact = () => {
                 />
               </div>
 
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="w-full bg-gradient-to-r from-kre-violet to-kre-pink-bright text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-              >
-                <Send size={20} />
-                <span>{isLoading ? "Envoi en cours..." : "Envoyer le message"}</span>
-              </button>
+              {/* Boutons d'envoi */}
+              <div className="space-y-3">
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-kre-violet to-kre-pink-bright text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transition-all transform hover:scale-105 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  <Send size={20} />
+                  <span>{isLoading ? "Envoi en cours..." : "Envoyer par Email"}</span>
+                </button>
+
+                {/* Bouton WhatsApp de secours */}
+                <button
+                  type="button"
+                  onClick={sendViaWhatsApp}
+                  disabled={!formData.name || !formData.email || !formData.message}
+                  className="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-6 rounded-lg font-semibold transition-all flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  <Phone size={20} />
+                  <span>Ou envoyer via WhatsApp</span>
+                </button>
+              </div>
+              
+              <p className="text-sm text-gray-500 text-center">
+                💡 En cas de problème avec l'email, utilisez le bouton WhatsApp
+              </p>
             </form>
           </div>
         </div>
