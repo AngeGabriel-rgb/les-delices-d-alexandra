@@ -18,25 +18,11 @@ const About = () => {
                 alliant saveurs authentiques et techniques artisanales, pour que vous puissiez savourer 
                 chaque moment avec gourmandise.
               </p>
-              <div className="flex space-x-8 text-center mt-8">
-                <div>
-                  <div className="text-3xl font-bold text-kre-violet">200+</div>
-                  <div className="text-gray-600">Recettes</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-kre-violet">3000+</div>
-                  <div className="text-gray-600">Clients satisfaits</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-kre-violet">5</div>
-                  <div className="text-gray-600">Années de passion</div>
-                </div>
-              </div>
             </div>
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
                 <img
-                  src="/alex1.jpg" // Remplace par une image de pâtisserie
+                  src="/alex.png" // Remplace par une image de pâtisserie
                   alt="Collection de pâtisseries"
                   className="w-full h-full object-cover"
                 />

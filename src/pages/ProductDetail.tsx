@@ -1,204 +1,174 @@
 "use client"
 
 import { useParams, useNavigate } from "react-router-dom"
-import { ArrowLeft, ShoppingCart } from "lucide-react"
+import { ArrowLeft, ShoppingCart, Heart, Share2 } from "lucide-react"
 import Header from "@/components/Header"
 import { useState } from "react"
+import { Button } from "@/components/ui/button"
 
 const ProductDetail = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
 
-  // Données des produits avec détails complets pour les IDs 1-10
+  // Données synchronisées avec la galerie
   const products = [
     {
       id: 1,
-      name: "Gâteau au chocolat",
+      name: "Gâteau à la crème",
       category: "Gâteaux",
       price: "12500 FCFA",
-      images: [
-        "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Un délice riche en chocolat, parfait pour les amateurs.",
+      images: ["/blanc.png", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Un délice moelleux, recouvert d'une onctueuse couche de crème fouettée.",
       detailedDescription:
-        "Ce gâteau au chocolat est préparé avec du chocolat noir de première qualité et des ingrédients frais. La texture moelleuse et le goût intense en font un dessert irrésistible. Parfait pour les anniversaires, les célébrations ou simplement pour se faire plaisir.",
-      ingredients: [
-        "Chocolat noir 70%",
-        "Beurre fermier",
-        "Œufs frais",
-        "Farine de blé",
-        "Sucre roux",
-        "Crème fraîche",
-      ],
+        "Ce gâteau à la crème est préparé avec des ingrédients frais et de qualité. La génoise moelleuse est garnie d'une crème fouettée légère et aérienne, créant un dessert parfait pour toutes les occasions spéciales.",
+      ingredients: ["Farine de blé", "Œufs frais", "Sucre", "Beurre", "Crème fraîche", "Vanille"],
       allergens: ["Gluten", "Œufs", "Lait"],
       weight: "500g",
       servings: "6-8 personnes",
     },
     {
       id: 2,
-      name: "Tarte aux fruits",
-      category: "Pâtisseries",
+      name: "Gâteau nature",
+      category: "Gâteaux",
       price: "9500 FCFA",
-      images: [
-        "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Une croûte croustillante garnie de fruits frais.",
+      images: ["/gateaux2.jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Un gâteau simple et savoureux, parfait pour accompagner votre thé ou café.",
       detailedDescription:
-        "Cette tarte aux fruits combine une pâte sablée croustillante avec une crème pâtissière onctueuse et des fruits de saison soigneusement sélectionnés. Chaque tarte est décorée à la main pour un rendu visuel parfait.",
-      ingredients: ["Pâte sablée", "Crème pâtissière", "Fruits de saison", "Nappage neutre"],
+        "Notre gâteau nature est préparé selon une recette traditionnelle. Sa texture moelleuse et son goût authentique en font un classique intemporel, idéal pour le goûter ou comme base pour vos créations personnalisées.",
+      ingredients: ["Farine de blé", "Œufs", "Sucre", "Beurre", "Levure", "Lait"],
       allergens: ["Gluten", "Œufs", "Lait"],
       weight: "400g",
       servings: "4-6 personnes",
     },
     {
       id: 3,
-      name: "Crêpes Suzette",
+      name: "Crêpes",
       category: "Crêpes",
       price: "6500 FCFA",
-      images: [
-        "https://images.unsplash.com/photo-1506084868230-bb9d95c24759?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1481070555726-e2fe8357725c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Crêpes délicates flambées avec une sauce à l'orange.",
+      images: ["/crepes.png", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Crêpes délicates au chocolat noir, fines et savoureuses.",
       detailedDescription:
-        "Les célèbres crêpes Suzette, flambées devant vous avec notre sauce signature à l'orange et au Grand Marnier. Une expérience gustative unique qui allie tradition française et spectacle culinaire.",
-      ingredients: ["Pâte à crêpes", "Beurre", "Sucre", "Jus d'orange", "Grand Marnier"],
-      allergens: ["Gluten", "Œufs", "Lait", "Alcool"],
+        "Nos crêpes sont préparées avec une pâte fine et légère, garnies de chocolat noir de qualité. Servies chaudes, elles offrent une expérience gustative exceptionnelle avec leur texture fondante et leur goût riche en chocolat.",
+      ingredients: ["Farine", "Œufs", "Lait", "Chocolat noir", "Beurre", "Sucre"],
+      allergens: ["Gluten", "Œufs", "Lait"],
       weight: "300g",
       servings: "2-3 personnes",
     },
     {
       id: 4,
-      name: "Macarons assortis",
-      category: "Pâtisseries",
+      name: "Mini-burger",
+      category: "Viennoiseries et autres",
       price: "5500 FCFA",
-      images: [
-        "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1587736797991-c5ee4fe1fc23?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Des douceurs colorées aux saveurs variées.",
+      images: ["/burger.png", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Délicieux mini-burgers parfaits pour l'apéritif ou comme collation gourmande.",
       detailedDescription:
-        "Nos macarons sont préparés selon la tradition française avec une coque croquante et un cœur fondant. Chaque boîte contient un assortiment de 6 parfums différents : vanille, chocolat, framboise, pistache, caramel et citron.",
-      ingredients: ["Poudre d'amande", "Sucre glace", "Blancs d'œufs", "Colorants naturels", "Ganaches variées"],
-      allergens: ["Fruits à coque", "Œufs", "Lait"],
-      weight: "120g",
-      servings: "6 pièces",
+        "Ces mini-burgers sont préparés avec des pains briochés moelleux et garnis d'ingrédients frais et savoureux. Parfaits pour les réceptions, les pique-niques ou comme en-cas original et délicieux.",
+      ingredients: ["Pain brioché", "Garniture variée", "Salade", "Tomate", "Sauce maison"],
+      allergens: ["Gluten", "Œufs", "Lait"],
+      weight: "250g",
+      servings: "4-6 pièces",
     },
     {
       id: 5,
-      name: "Éclair au café",
-      category: "Pâtisseries",
+      name: "Croquettes en pot",
+      category: "Viennoiseries et autres",
       price: "3500 FCFA",
-      images: [
-        "https://images.unsplash.com/photo-1549007994-cb92caebd54b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Pâte à choux garnie de crème pâtissière au café.",
+      images: ["/pot.jpeg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Croquettes croustillantes servies dans un pot pratique, parfaites à partager.",
       detailedDescription:
-        "Éclair traditionnel garni d'une crème pâtissière au café arabica et recouvert d'un fondant au café. La pâte à choux est cuite à la perfection pour obtenir une texture légère et aérée.",
-      ingredients: ["Pâte à choux", "Crème pâtissière", "Café arabica", "Fondant", "Beurre"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "80g",
-      servings: "1 personne",
+        "Nos croquettes sont préparées avec des ingrédients de qualité et cuites à la perfection pour obtenir un extérieur croustillant et un intérieur fondant. Servies dans un pot pratique, elles sont idéales pour les moments de partage.",
+      ingredients: ["Pommes de terre", "Fromage", "Herbes", "Chapelure", "Huile végétale"],
+      allergens: ["Gluten", "Lait"],
+      weight: "200g",
+      servings: "2-3 personnes",
     },
     {
       id: 6,
-      name: "Millefeuille",
-      category: "Pâtisseries",
+      name: "Donuts",
+      category: "Viennoiseries et autres",
       price: "8500 FCFA",
-      images: [
-        "/mil2.jpg",
-        "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Feuilletage croustillant et crème pâtissière vanille.",
+      images: ["/donnut.jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Donuts moelleux et colorés, glacés avec différents parfums pour tous les goûts.",
       detailedDescription:
-        "Le millefeuille classique avec ses trois couches de pâte feuilletée croustillante et sa crème pâtissière à la vanille bourbon. Surmonté d'un glaçage royal décoré à la main selon la tradition.",
-      ingredients: ["Pâte feuilletée", "Crème pâtissière", "Vanille bourbon", "Glaçage royal"],
+        "Nos donuts sont préparés avec une pâte levée moelleuse et recouverts de glaçages colorés aux parfums variés. Chaque donut est une petite œuvre d'art gourmande qui ravira petits et grands.",
+      ingredients: ["Farine", "Sucre", "Œufs", "Beurre", "Levure", "Glaçage coloré"],
       allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "150g",
-      servings: "1-2 personnes",
+      weight: "300g",
+      servings: "4-6 pièces",
     },
     {
       id: 7,
-      name: "Croquembouche",
-      category: "Gâteaux",
+      name: "Mini-pizza",
+      category: "Viennoiseries et autres",
       price: "15000 FCFA",
-      images: [
-        "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Tour de choux à la crème reliés par du caramel doré.",
+      images: ["/minipizza.jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Mini-pizzas savoureuses avec une pâte croustillante et des garnitures variées.",
       detailedDescription:
-        "Pièce montée traditionnelle française composée de choux à la crème assemblés en pyramide et liés par un caramel doré. Parfait pour les grandes occasions et les célébrations.",
-      ingredients: ["Pâte à choux", "Crème pâtissière", "Caramel", "Sucre", "Décoration spun sugar"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "800g",
-      servings: "10-12 personnes",
+        "Nos mini-pizzas sont préparées avec une pâte fine et croustillante, garnies de sauce tomate maison, de fromage de qualité et d'ingrédients frais. Parfaites pour l'apéritif ou un repas léger.",
+      ingredients: ["Pâte à pizza", "Sauce tomate", "Fromage", "Garnitures variées", "Herbes de Provence"],
+      allergens: ["Gluten", "Lait"],
+      weight: "400g",
+      servings: "6-8 pièces",
     },
     {
       id: 8,
-      name: "Tarte Tatin",
-      category: "Pâtisseries",
+      name: "Box personnalisable",
+      category: "Viennoiseries et autres",
       price: "10500 FCFA",
-      images: [
-        "https://images.unsplash.com/photo-1488477181946-6428a0291777?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Tarte aux pommes caramélisées, renversée à la française.",
+      images: ["/box .jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Box gourmande personnalisable avec une sélection de nos meilleures pâtisseries.",
       detailedDescription:
-        "La célèbre tarte Tatin avec ses pommes caramélisées et sa pâte brisée croustillante. Cuite dans un moule spécial et retournée pour révéler les pommes dorées au caramel.",
-      ingredients: ["Pommes Golden", "Pâte brisée", "Beurre salé", "Sucre", "Cannelle"],
-      allergens: ["Gluten", "Lait"],
-      weight: "450g",
+        "Cette box personnalisable vous permet de composer votre assortiment de pâtisseries selon vos préférences. Idéale pour les cadeaux ou pour découvrir notre gamme de produits. Chaque box est préparée avec soin et présentée dans un emballage élégant.",
+      ingredients: ["Assortiment de pâtisseries", "Emballage personnalisé"],
+      allergens: ["Varie selon la sélection"],
+      weight: "Variable",
       servings: "4-6 personnes",
     },
     {
       id: 9,
-      name: "Profiteroles",
-      category: "Pâtisseries",
+      name: "Gâteau au chocolat",
+      category: "Gâteaux",
       price: "7500 FCFA",
-      images: [
-        "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        "https://images.unsplash.com/photo-1549007994-cb92caebd54b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Choux à la crème glacée nappés de chocolat chaud.",
+      images: ["/anniv.jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Gâteau au chocolat riche et intense, parfait pour les anniversaires et célébrations.",
       detailedDescription:
-        "Petits choux garnis de glace à la vanille et nappés d'une sauce chocolat chaude. Servis immédiatement pour contraster les températures et les textures.",
-      ingredients: ["Pâte à choux", "Glace vanille", "Chocolat noir", "Crème liquide", "Sucre"],
+        "Ce gâteau au chocolat est préparé avec du chocolat noir de première qualité. Sa texture moelleuse et son goût intense en font le dessert idéal pour les anniversaires et toutes les occasions spéciales. Décoré avec soin pour un rendu visuel parfait.",
+      ingredients: ["Chocolat noir", "Farine", "Œufs", "Sucre", "Beurre", "Cacao"],
       allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "250g",
-      servings: "2-3 personnes",
+      weight: "450g",
+      servings: "6-8 personnes",
     },
     {
       id: 10,
-      name: "Opéra",
-      category: "Gâteaux",
-      price: "3500 FCFA",
-      images: [
-        "/opera.jpg",
-        "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-      ],
-      description: "Gâteau aux amandes, ganache chocolat et glaçage miroir.",
+      name: "Crêpe nature",
+      category: "Crêpes",
+      price: "9500 FCFA",
+      images: ["/crepeblanc.png", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      description: "Crêpes nature légères et moelleuses, parfaites pour le petit-déjeuner ou le goûter.",
       detailedDescription:
-        "L'Opéra est un gâteau sophistiqué composé de biscuit Joconde aux amandes, de ganache au chocolat et de crème au beurre au café, le tout recouvert d'un glaçage chocolat miroir parfaitement lisse.",
-      ingredients: [
-        "Biscuit Joconde",
-        "Ganache chocolat",
-        "Crème au beurre café",
-        "Glaçage chocolat",
-        "Poudre d'amande",
-      ],
-      allergens: ["Gluten", "Œufs", "Lait", "Fruits à coque"],
-      weight: "400g",
-      servings: "4-6 personnes",
+        "Nos crêpes nature sont préparées avec une pâte traditionnelle fine et légère. Leur texture moelleuse et leur goût authentique en font un classique incontournable, parfait pour accompagner vos confitures préférées ou simplement dégusté nature.",
+      ingredients: ["Farine", "Œufs", "Lait", "Beurre", "Sucre", "Sel"],
+      allergens: ["Gluten", "Œufs", "Lait"],
+      weight: "250g",
+      servings: "3-4 pièces",
     },
   ]
+
+  // Images similaires pour chaque catégorie
+  const similarImages = {
+    Gâteaux: [
+      "/placeholder.svg?height=200&width=200",
+      "/placeholder.svg?height=200&width=200",
+      "/placeholder.svg?height=200&width=200",
+    ],
+    Crêpes: ["/placeholder.svg?height=200&width=200", "/placeholder.svg?height=200&width=200"],
+    "Viennoiseries et autres": [
+      "/placeholder.svg?height=200&width=200",
+      "/placeholder.svg?height=200&width=200",
+      "/placeholder.svg?height=200&width=200",
+    ],
+  }
 
   const product = products.find((p) => p.id === Number.parseInt(id || "0"))
 
@@ -208,24 +178,40 @@ const ProductDetail = () => {
         <Header />
         <div className="container mx-auto px-4 py-20 text-center">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">Produit non trouvé</h1>
-          <button
+          <Button
             onClick={() => navigate("/")}
-            className="bg-gradient-to-r from-kre-violet to-kre-pink-bright text-white px-6 py-3 rounded-full hover:shadow-lg transition-all"
+            className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-6 py-3 rounded-full hover:shadow-lg transition-all"
           >
             Retour à l'accueil
-          </button>
+          </Button>
         </div>
       </div>
     )
   }
 
   const handleWhatsAppOrder = () => {
-    const phoneNumber = "24174504103" // Remplacez par le vrai numéro de la vendeuse
-    const message = `Bonjour ! Je souhaite commander :\n\n🍰 ${product.name}\n💰 Prix: ${product.price}\n📦 Poids: ${product.weight}\n👥 Portions: ${product.servings}\n\nPouvez-vous me confirmer la disponibilité et les modalités de commande ?\n\nMerci !`
+    const phoneNumber = "24174504103"
+    const productImage = product.images[0]
+    const message = `Bonjour ! Je souhaite commander :\n\n🍰 ${product.name}\n💰 Prix: ${product.price}\n📦 Poids: ${product.weight}\n👥 Portions: ${product.servings}\n\n📸 Image du produit: ${window.location.origin}${productImage}\n\nPouvez-vous me confirmer la disponibilité et les modalités de commande ?\n\nMerci !`
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
     window.open(whatsappUrl, "_blank")
   }
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: product.name,
+        text: product.description,
+        url: window.location.href,
+      })
+    } else {
+      navigator.clipboard.writeText(window.location.href)
+      alert("Lien copié dans le presse-papiers !")
+    }
+  }
+
+  const categoryImages = similarImages[product.category as keyof typeof similarImages] || []
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -233,7 +219,7 @@ const ProductDetail = () => {
       <div className="container mx-auto px-4 py-20">
         <button
           onClick={() => navigate("/")}
-          className="flex items-center gap-2 text-kre-violet hover:text-kre-pink-bright transition-colors mb-8"
+          className="flex items-center gap-2 text-purple-600 hover:text-pink-500 transition-colors mb-8"
         >
           <ArrowLeft size={20} />
           Retour à la galerie
@@ -243,25 +229,25 @@ const ProductDetail = () => {
           <div className="grid lg:grid-cols-2 gap-8 p-8">
             {/* Images Section */}
             <div className="space-y-4">
-              <div className="aspect-square overflow-hidden rounded-xl">
+              <div className="aspect-square overflow-hidden rounded-xl bg-gray-100">
                 <img
-                  src={product.images[selectedImageIndex] || "/placeholder.svg"}
+                  src={product.images[selectedImageIndex] || "/placeholder.svg?height=500&width=500"}
                   alt={product.name}
                   className="w-full h-full object-cover"
                 />
               </div>
               {product.images.length > 1 && (
-                <div className="flex gap-2">
+                <div className="flex gap-2 overflow-x-auto pb-2">
                   {product.images.map((image, index) => (
                     <button
                       key={index}
                       onClick={() => setSelectedImageIndex(index)}
-                      className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                        selectedImageIndex === index ? "border-kre-violet" : "border-gray-200 hover:border-gray-300"
+                      className={`flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                        selectedImageIndex === index ? "border-purple-600" : "border-gray-200 hover:border-gray-300"
                       }`}
                     >
                       <img
-                        src={image || "/placeholder.svg"}
+                        src={image || "/placeholder.svg?height=80&width=80"}
                         alt={`${product.name} ${index + 1}`}
                         className="w-full h-full object-cover"
                       />
@@ -274,27 +260,43 @@ const ProductDetail = () => {
             {/* Product Info Section */}
             <div className="space-y-6">
               <div>
-                <span className="inline-block bg-kre-lavender text-kre-violet px-3 py-1 rounded-full text-sm font-medium mb-2">
+                <span className="inline-block bg-purple-100 text-purple-600 px-3 py-1 rounded-full text-sm font-medium mb-2">
                   {product.category}
                 </span>
                 <h1 className="text-3xl font-bold text-gray-800 mb-2">{product.name}</h1>
                 <p className="text-xl text-gray-600 mb-4">{product.description}</p>
-                <div className="text-4xl font-bold text-kre-violet mb-6">{product.price}</div>
+                <div className="text-4xl font-bold text-purple-600 mb-6">{product.price}</div>
+              </div>
+
+              <div className="flex gap-3">
+                <Button
+                  onClick={handleWhatsAppOrder}
+                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:shadow-lg transition-all"
+                >
+                  <ShoppingCart size={20} className="mr-2" />
+                  Commander via WhatsApp
+                </Button>
+                <Button variant="outline" onClick={handleShare} className="px-4">
+                  <Share2 size={20} />
+                </Button>
+                <Button variant="outline" className="px-4">
+                  <Heart size={20} />
+                </Button>
               </div>
 
               <div className="space-y-4">
                 <div>
                   <h3 className="font-semibold text-gray-800 mb-2">Description détaillée</h3>
-                  <p className="text-gray-600">{product.detailedDescription}</p>
+                  <p className="text-gray-600 leading-relaxed">{product.detailedDescription}</p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
                   <div>
-                    <span className="font-semibold text-gray-800">Poids:</span>
+                    <span className="font-semibold text-gray-800 block">Poids:</span>
                     <p className="text-gray-600">{product.weight}</p>
                   </div>
                   <div>
-                    <span className="font-semibold text-gray-800">Portions:</span>
+                    <span className="font-semibold text-gray-800 block">Portions:</span>
                     <p className="text-gray-600">{product.servings}</p>
                   </div>
                 </div>
@@ -303,7 +305,7 @@ const ProductDetail = () => {
                   <h4 className="font-semibold text-gray-800 mb-2">Ingrédients</h4>
                   <div className="flex flex-wrap gap-2">
                     {product.ingredients.map((ingredient, index) => (
-                      <span key={index} className="bg-gray-100 px-2 py-1 rounded text-sm">
+                      <span key={index} className="bg-gray-100 px-3 py-1 rounded-full text-sm">
                         {ingredient}
                       </span>
                     ))}
@@ -314,25 +316,36 @@ const ProductDetail = () => {
                   <h4 className="font-semibold text-gray-800 mb-2">Allergènes</h4>
                   <div className="flex flex-wrap gap-2">
                     {product.allergens.map((allergen, index) => (
-                      <span key={index} className="bg-red-100 text-red-800 px-2 py-1 rounded text-sm">
-                        {allergen}
+                      <span key={index} className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
+                        ⚠️ {allergen}
                       </span>
                     ))}
                   </div>
                 </div>
               </div>
-
-              <div className="pt-6">
-                <button
-                  onClick={handleWhatsAppOrder}
-                  className="flex items-center gap-2 bg-gradient-to-r from-kre-violet to-kre-pink-bright text-white px-6 py-3 rounded-full hover:shadow-lg transition-all w-full justify-center"
-                >
-                  <ShoppingCart size={20} />
-                  Commander via WhatsApp
-                </button>
-              </div>
             </div>
           </div>
+
+          {/* Images similaires */}
+          {categoryImages.length > 0 && (
+            <div className="border-t p-8">
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Produits similaires</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {categoryImages.map((image, index) => (
+                  <div
+                    key={index}
+                    className="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:shadow-lg transition-shadow cursor-pointer"
+                  >
+                    <img
+                      src={image || "/placeholder.svg"}
+                      alt={`Produit similaire ${index + 1}`}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
