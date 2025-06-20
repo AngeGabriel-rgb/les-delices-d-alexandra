@@ -18,7 +18,7 @@ const ProductDetail = () => {
       name: "Gâteau à la crème",
       category: "Gâteaux",
       price: "12500 FCFA",
-      images: ["/blanc.png", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      images: ["/creme4.jpg", "/creme.avif", "/creme3.jpg"],
       description: "Un délice moelleux, recouvert d'une onctueuse couche de crème fouettée.",
       detailedDescription:
         "Ce gâteau à la crème est préparé avec des ingrédients frais et de qualité. La génoise moelleuse est garnie d'une crème fouettée légère et aérienne, créant un dessert parfait pour toutes les occasions spéciales.",
@@ -32,7 +32,7 @@ const ProductDetail = () => {
       name: "Gâteau nature",
       category: "Gâteaux",
       price: "9500 FCFA",
-      images: ["/gateaux2.jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      images: ["/gateaux2.jpg", "/gat2.webp", "/gat3.jpeg"],
       description: "Un gâteau simple et savoureux, parfait pour accompagner votre thé ou café.",
       detailedDescription:
         "Notre gâteau nature est préparé selon une recette traditionnelle. Sa texture moelleuse et son goût authentique en font un classique intemporel, idéal pour le goûter ou comme base pour vos créations personnalisées.",
@@ -46,7 +46,7 @@ const ProductDetail = () => {
       name: "Crêpes",
       category: "Crêpes",
       price: "6500 FCFA",
-      images: ["/crepes.png", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      images: ["/crepeschoco.jpg", "/crepechoco.png"],
       description: "Crêpes délicates au chocolat noir, fines et savoureuses.",
       detailedDescription:
         "Nos crêpes sont préparées avec une pâte fine et légère, garnies de chocolat noir de qualité. Servies chaudes, elles offrent une expérience gustative exceptionnelle avec leur texture fondante et leur goût riche en chocolat.",
@@ -60,21 +60,21 @@ const ProductDetail = () => {
       name: "Mini-burger",
       category: "Viennoiseries et autres",
       price: "5500 FCFA",
-      images: ["/burger.png", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      images: ["/burger.png", "/minib.jpg"],
       description: "Délicieux mini-burgers parfaits pour l'apéritif ou comme collation gourmande.",
       detailedDescription:
         "Ces mini-burgers sont préparés avec des pains briochés moelleux et garnis d'ingrédients frais et savoureux. Parfaits pour les réceptions, les pique-niques ou comme en-cas original et délicieux.",
       ingredients: ["Pain brioché", "Garniture variée", "Salade", "Tomate", "Sauce maison"],
       allergens: ["Gluten", "Œufs", "Lait"],
       weight: "250g",
-      servings: "4-6 pièces",
+      servings: null ,
     },
     {
       id: 5,
       name: "Croquettes en pot",
       category: "Viennoiseries et autres",
       price: "3500 FCFA",
-      images: ["/pot.jpeg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      images: ["/croquettes.jpg", "/pot.jpeg" ],
       description: "Croquettes croustillantes servies dans un pot pratique, parfaites à partager.",
       detailedDescription:
         "Nos croquettes sont préparées avec des ingrédients de qualité et cuites à la perfection pour obtenir un extérieur croustillant et un intérieur fondant. Servies dans un pot pratique, elles sont idéales pour les moments de partage.",
@@ -88,21 +88,21 @@ const ProductDetail = () => {
       name: "Donuts",
       category: "Viennoiseries et autres",
       price: "8500 FCFA",
-      images: ["/donnut.jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      images: ["/donnut.jpg", "/donuts.jpg?height=400&width=400"],
       description: "Donuts moelleux et colorés, glacés avec différents parfums pour tous les goûts.",
       detailedDescription:
         "Nos donuts sont préparés avec une pâte levée moelleuse et recouverts de glaçages colorés aux parfums variés. Chaque donut est une petite œuvre d'art gourmande qui ravira petits et grands.",
       ingredients: ["Farine", "Sucre", "Œufs", "Beurre", "Levure", "Glaçage coloré"],
       allergens: ["Gluten", "Œufs", "Lait"],
       weight: "300g",
-      servings: "4-6 pièces",
+      servings:null,
     },
     {
       id: 7,
       name: "Mini-pizza",
       category: "Viennoiseries et autres",
       price: "15000 FCFA",
-      images: ["/minipizza.jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      images: ["/minipizza.jpg", "/minipizza1.jpg?"],
       description: "Mini-pizzas savoureuses avec une pâte croustillante et des garnitures variées.",
       detailedDescription:
         "Nos mini-pizzas sont préparées avec une pâte fine et croustillante, garnies de sauce tomate maison, de fromage de qualité et d'ingrédients frais. Parfaites pour l'apéritif ou un repas léger.",
@@ -116,7 +116,7 @@ const ProductDetail = () => {
       name: "Box personnalisable",
       category: "Viennoiseries et autres",
       price: "10500 FCFA",
-      images: ["/box .jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      images: ["/box .jpg", "/panier.webp", "/panier2.webp"],
       description: "Box gourmande personnalisable avec une sélection de nos meilleures pâtisseries.",
       detailedDescription:
         "Cette box personnalisable vous permet de composer votre assortiment de pâtisseries selon vos préférences. Idéale pour les cadeaux ou pour découvrir notre gamme de produits. Chaque box est préparée avec soin et présentée dans un emballage élégant.",
@@ -130,7 +130,7 @@ const ProductDetail = () => {
       name: "Gâteau au chocolat",
       category: "Gâteaux",
       price: "7500 FCFA",
-      images: ["/anniv.jpg", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
+      images: ["/anniv.jpg", "/noir.jpg", "/placeholder.svg?height=400&width=400"],
       description: "Gâteau au chocolat riche et intense, parfait pour les anniversaires et célébrations.",
       detailedDescription:
         "Ce gâteau au chocolat est préparé avec du chocolat noir de première qualité. Sa texture moelleuse et son goût intense en font le dessert idéal pour les anniversaires et toutes les occasions spéciales. Décoré avec soin pour un rendu visuel parfait.",
@@ -153,20 +153,48 @@ const ProductDetail = () => {
       weight: "250g",
       servings: "3-4 pièces",
     },
+    {
+      id: 11,
+      name: "Croques monsieur",
+      category: "Viennoiseries et autres",
+      price: "12000 FCFA",
+      images: ["/cro.jpg", "/cro2.jpg"],
+      description: "Croques monsieur croustillants, garnis de jambon et de fromage fondant.",
+      detailedDescription:
+        "Nos croques monsieur sont préparés avec du pain de mie doré à la perfection, garni de jambon savoureux et de fromage fondant. Parfaits pour un déjeuner rapide ou un dîner léger, ils sont toujours appréciés.",
+      ingredients: ["Farine de blé", "Jambon", "Fromage", "Beurre", "Œufs", "Lait"],
+      allergens: ["Gluten", "Œufs", "Lait"],
+      weight: "300g",
+    },
+ {
+  id: 12,
+  name: "Nems",
+  category: "Viennoiseries et autres",
+  price: "13000 FCFA",
+  images: ["/nems.jpg", "/nems2.jpeg"],
+  description: "Des rouleaux croustillants farcis de légumes et de viande, servis avec une sauce aigre-douce.",
+  detailedDescription: "Ces nems sont des rouleaux croustillants, préparés avec des légumes frais et de la viande, offrant une combinaison parfaite de saveurs. Ils sont généralement servis avec une sauce aigre-douce, ce qui les rend irrésistibles en entrée ou en plat principal.",
+  ingredients: ["Pâte à nems", "Légumes", "Viande", "Sauce aigre-douce"],
+  allergens: ["Gluten", "Viande"],
+  weight: null,
+  
+}
+
   ]
 
   // Images similaires pour chaque catégorie
   const similarImages = {
     Gâteaux: [
-      "/placeholder.svg?height=200&width=200",
-      "/placeholder.svg?height=200&width=200",
-      "/placeholder.svg?height=200&width=200",
+      "/gateaux.jpg",
+      "/doris.png",
+      "/gateaux4.jpg",
     ],
-    Crêpes: ["/placeholder.svg?height=200&width=200", "/placeholder.svg?height=200&width=200"],
+    Crêpes: ["/crepes.png", "/crepeblanc.png?height=200&width=200"],
     "Viennoiseries et autres": [
-      "/placeholder.svg?height=200&width=200",
-      "/placeholder.svg?height=200&width=200",
-      "/placeholder.svg?height=200&width=200",
+      "/minib.jpg",
+      "/minipizza1.jpg",
+      "/pastels.jpg",
+      "/donnut.jpg",
     ],
   }
 
@@ -192,7 +220,7 @@ const ProductDetail = () => {
   const handleWhatsAppOrder = () => {
     const phoneNumber = "24174504103"
     const productImage = product.images[0]
-    const message = `Bonjour ! Je souhaite commander :\n\n🍰 ${product.name}\n💰 Prix: ${product.price}\n📦 Poids: ${product.weight}\n👥 Portions: ${product.servings}\n\n📸 Image du produit: ${window.location.origin}${productImage}\n\nPouvez-vous me confirmer la disponibilité et les modalités de commande ?\n\nMerci !`
+    const message = `Bonjour ! Je souhaite commander :\n\n🍰 ${product.name}\n💰 Prix: ${product.price}\n📦 Poids: ${product.weight}\n👥 Pouvez-vous me confirmer la disponibilité et les modalités de commande ?\n\nMerci !`
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
     window.open(whatsappUrl, "_blank")

@@ -15,7 +15,7 @@ const Gallery = () => {
       name: "Gâteau à la crème",
       category: "Gâteaux",
       price: "12500 FCFA",
-      image: "/blanc.png",
+      image: "/creme4.jpg",
       description: "Un délice moelleux, recouvert d'une onctueuse couche de crème fouettée.",
       weight: "500g",
       servings: "6-8 personnes",
@@ -35,10 +35,10 @@ const Gallery = () => {
       name: "Crêpes",
       category: "Crêpes",
       price: "6500 FCFA",
-      image: "/crepes.png",
+      image: "/crepeschoco.jpg",
       description: "Crêpes délicates au chocolat noir, fines et savoureuses.",
       weight: "300g",
-      servings: "2-3 personnes",
+   
     },
     {
       id: 4,
@@ -48,17 +48,17 @@ const Gallery = () => {
       image: "/burger.png",
       description: "Délicieux mini-burgers parfaits pour l'apéritif ou comme collation gourmande.",
       weight: "250g",
-      servings: "4-6 pièces",
+    
     },
     {
       id: 5,
       name: "Croquettes en pot",
       category: "Viennoiseries et autres",
       price: "3500 FCFA",
-      image: "/pot.jpeg",
+      image: "/croquettes.jpg",
       description: "Croquettes croustillantes servies dans un pot pratique, parfaites à partager.",
       weight: "200g",
-      servings: "2-3 personnes",
+    
     },
     {
       id: 6,
@@ -68,7 +68,7 @@ const Gallery = () => {
       image: "/donnut.jpg",
       description: "Donuts moelleux et colorés, glacés avec différents parfums pour tous les goûts.",
       weight: "300g",
-      servings: "4-6 pièces",
+     
     },
     {
       id: 7,
@@ -78,7 +78,7 @@ const Gallery = () => {
       image: "/minipizza.jpg",
       description: "Mini-pizzas savoureuses avec une pâte croustillante et des garnitures variées.",
       weight: "400g",
-      servings: "6-8 pièces",
+    
     },
     {
       id: 8,
@@ -88,7 +88,7 @@ const Gallery = () => {
       image: "/box .jpg",
       description: "Box gourmande personnalisable avec une sélection de nos meilleures pâtisseries.",
       weight: "Variable",
-      servings: "4-6 personnes",
+    
     },
     {
       id: 9,
@@ -98,7 +98,7 @@ const Gallery = () => {
       image: "/anniv.jpg",
       description: "Gâteau au chocolat riche et intense, parfait pour les anniversaires et célébrations.",
       weight: "450g",
-      servings: "6-8 personnes",
+   
     },
     {
       id: 10,
@@ -108,7 +108,27 @@ const Gallery = () => {
       image: "/crepeblanc.png",
       description: "Crêpes nature légères et moelleuses, parfaites pour le petit-déjeuner ou le goûter.",
       weight: "250g",
-      servings: "3-4 pièces",
+   
+    },
+      {
+      id: 11,
+      name: "Croque Monsieur",
+      category: "Viennoiseries et autres",
+      price: "9500 FCFA",
+      image: "/cro.jpg",
+      description: "Un classique français, le croque monsieur est un sandwich chaud garni de jambon et de fromage fondu.",
+      weight: null,
+   
+    },
+      {
+      id: 12,
+      name: "Nems",
+      category: "Viennoiseries et autres",
+      price: "9500 FCFA",
+      image: "/nems.jpg",
+      description: "Des rouleaux croustillants farcis de légumes et de viande, servis avec une sauce aigre-douce.",
+      weight: null,
+   
     },
   ]
 
