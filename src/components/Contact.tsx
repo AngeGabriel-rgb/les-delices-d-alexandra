@@ -19,10 +19,10 @@ const Contact = () => {
   // CONFIGURATION EMAILJS - REMPLACEZ VOS CLÉS ICI
   // ========================================
   const EMAILJS_CONFIG = {
-    serviceId: "service_mu1960v", // Exemple: "service_abc123"
-    templateId: "template_qe67fhm", // Exemple: "template_xyz789"
-    publicKey: "gLE1xvpjusIK1EdsF", // Exemple: "abcdef123456"
-    destinationEmail: "gabruielange748@gmail.com",
+    serviceId: "service_m5dm4d2", // Exemple: "service_abc123"
+    templateId: "template_l0rz84d", // Exemple: "template_xyz789"
+    publicKey: "onWteZyTuYYW4U1eE", // Exemple: "abcdef123456"
+    destinationEmail: "marieayele901@gmail.com",
   }
 
   // Initialisation d'EmailJS (optionnel mais recommandé)
@@ -149,7 +149,7 @@ Envoyé depuis le formulaire de contact.
                         href="mailto:gabruielange748@gmail.com"
                         className="text-purple-600 hover:text-purple-700 transition-colors"
                       >
-                        gabruielange748@gmail.com
+                        marieayele901@gmail.com
                       </a>
                     </div>
                   </div>
@@ -161,7 +161,7 @@ Envoyé depuis le formulaire de contact.
                     <div>
                       <h4 className="font-semibold text-gray-800 mb-1">Téléphone</h4>
                       <a href="tel:+24162489699" className="text-green-600 hover:text-green-700 transition-colors">
-                        +241 62 48 96 99
+                        +241 74 50 41 03
                       </a>
                     </div>
                   </div>
@@ -173,7 +173,7 @@ Envoyé depuis le formulaire de contact.
                     <div>
                       <h4 className="font-semibold text-gray-800 mb-1">Adresse</h4>
                       <p className="text-gray-600">
-                        Alibandeng
+                        Alibandeng Et Akamda
                         <br />
                         Libreville, Gabon
                       </p>

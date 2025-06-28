@@ -11,191 +11,277 @@ const ProductDetail = () => {
   const navigate = useNavigate()
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
 
-  // Données synchronisées avec la galerie
+  // Données complètes des produits avec toutes les variantes et chemins d'images corrigés
   const products = [
+    // Gâteaux
     {
       id: 1,
-      name: "Gâteau à la crème",
+      name: "Gâteau au yaourt",
       category: "Gâteaux",
-      price: "12500 FCFA",
-      images: ["/creme4.jpg", "/creme.avif", "/creme3.jpg"],
-      description: "Un délice moelleux, recouvert d'une onctueuse couche de crème fouettée.",
-      detailedDescription:
-        "Ce gâteau à la crème est préparé avec des ingrédients frais et de qualité. La génoise moelleuse est garnie d'une crème fouettée légère et aérienne, créant un dessert parfait pour toutes les occasions spéciales.",
-      ingredients: ["Farine de blé", "Œufs frais", "Sucre", "Beurre", "Crème fraîche", "Vanille"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "500g",
-      servings: "6-8 personnes",
+      images: ["/gateaux2.jpg"],
+      description: "Gâteau moelleux à base de yaourt nature, parfait pour le goûter.",
+      detailedDescription: "Notre gâteau au yaourt est préparé avec des ingrédients frais pour une texture légère et moelleuse. Parfait pour les petits goûters ou les desserts légers.",
+      variants: [
+        { quantity: "1 gâteau", price: "3000 FCFA" }
+      ]
     },
     {
       id: 2,
-      name: "Gâteau nature",
+      name: "Gâteau à l'orange",
       category: "Gâteaux",
-      price: "9500 FCFA",
-      images: ["/gateaux2.jpg", "/gat2.webp", "/gat3.jpeg"],
-      description: "Un gâteau simple et savoureux, parfait pour accompagner votre thé ou café.",
-      detailedDescription:
-        "Notre gâteau nature est préparé selon une recette traditionnelle. Sa texture moelleuse et son goût authentique en font un classique intemporel, idéal pour le goûter ou comme base pour vos créations personnalisées.",
-      ingredients: ["Farine de blé", "Œufs", "Sucre", "Beurre", "Levure", "Lait"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "400g",
-      servings: "4-6 personnes",
+      images: ["/orange.jpg"],
+      description: "Gâteau parfumé à l'orange, léger et rafraîchissant.",
+      detailedDescription: "Ce gâteau à l'orange combine la douceur d'une génoise moelleuse avec le parfum rafraîchissant de l'orange. Idéal pour les occasions spéciales ou comme dessert du quotidien.",
+      variants: [
+        { quantity: "1 gâteau", price: "3500 FCFA" }
+      ]
     },
     {
       id: 3,
-      name: "Crêpes",
-      category: "Crêpes",
-      price: "6500 FCFA",
-      images: ["/crepeschoco.jpg", "/crepechoco.png"],
-      description: "Crêpes délicates au chocolat noir, fines et savoureuses.",
-      detailedDescription:
-        "Nos crêpes sont préparées avec une pâte fine et légère, garnies de chocolat noir de qualité. Servies chaudes, elles offrent une expérience gustative exceptionnelle avec leur texture fondante et leur goût riche en chocolat.",
-      ingredients: ["Farine", "Œufs", "Lait", "Chocolat noir", "Beurre", "Sucre"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "300g",
-      servings: "2-3 personnes",
+      name: "Gâteau au chocolat",
+      category: "Gâteaux",
+      images: ["/gateaux.jpg"],
+      description: "Gâteau riche au chocolat avec option noix de coco ou raisins secs.",
+      detailedDescription: "Notre gâteau au chocolat peut être personnalisé avec des raisins secs ou de la noix de coco pour plus de saveur. Préparé avec du chocolat de qualité pour un goût intense.",
+      variants: [
+        { quantity: "1 gâteau", price: "4000 FCFA" }
+      ]
     },
     {
       id: 4,
-      name: "Mini-burger",
-      category: "Viennoiseries et autres",
-      price: "5500 FCFA",
-      images: ["/burger.png", "/minib.jpg"],
-      description: "Délicieux mini-burgers parfaits pour l'apéritif ou comme collation gourmande.",
-      detailedDescription:
-        "Ces mini-burgers sont préparés avec des pains briochés moelleux et garnis d'ingrédients frais et savoureux. Parfaits pour les réceptions, les pique-niques ou comme en-cas original et délicieux.",
-      ingredients: ["Pain brioché", "Garniture variée", "Salade", "Tomate", "Sauce maison"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "250g",
-      servings: null ,
+      name: "Gâteau à l'ananas",
+      category: "Gâteaux",
+      images: ["/ananas.jpg"],
+      description: "Gâteau moelleux avec morceaux d'ananas frais.",
+      detailedDescription: "Un gâteau moelleux garni de morceaux d'ananas frais pour une touche tropicale. Parfait pour les anniversaires ou les occasions spéciales.",
+      variants: [
+        { quantity: "1 gâteau", price: "4500 FCFA" }
+      ]
     },
+
+    // Crêpes Sucrées
     {
       id: 5,
-      name: "Croquettes en pot",
-      category: "Viennoiseries et autres",
-      price: "3500 FCFA",
-      images: ["/croquettes.jpg", "/pot.jpeg" ],
-      description: "Croquettes croustillantes servies dans un pot pratique, parfaites à partager.",
-      detailedDescription:
-        "Nos croquettes sont préparées avec des ingrédients de qualité et cuites à la perfection pour obtenir un extérieur croustillant et un intérieur fondant. Servies dans un pot pratique, elles sont idéales pour les moments de partage.",
-      ingredients: ["Pommes de terre", "Fromage", "Herbes", "Chapelure", "Huile végétale"],
-      allergens: ["Gluten", "Lait"],
-      weight: "200g",
-      servings: "2-3 personnes",
+      name: "Crêpes nature",
+      category: "Crêpes Sucrées",
+      images: ["/crepeblanc.png"],
+      description: "Crêpes nature légères et moelleuses.",
+      detailedDescription: "Nos crêpes nature sont préparées selon une recette traditionnelle pour une texture légère et moelleuse. Parfaites pour le petit-déjeuner ou le goûter.",
+      variants: [
+        { quantity: "10 crêpes", price: "1500 FCFA" }
+      ]
     },
     {
       id: 6,
-      name: "Donuts",
-      category: "Viennoiseries et autres",
-      price: "8500 FCFA",
-      images: ["/donnut.jpg", "/donuts.jpg?height=400&width=400"],
-      description: "Donuts moelleux et colorés, glacés avec différents parfums pour tous les goûts.",
-      detailedDescription:
-        "Nos donuts sont préparés avec une pâte levée moelleuse et recouverts de glaçages colorés aux parfums variés. Chaque donut est une petite œuvre d'art gourmande qui ravira petits et grands.",
-      ingredients: ["Farine", "Sucre", "Œufs", "Beurre", "Levure", "Glaçage coloré"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "300g",
-      servings:null,
+      name: "Crêpes sucrées",
+      category: "Crêpes Sucrées",
+      images: ["/sucre.webp"],
+      description: "Crêpes légèrement sucrées avec une touche de vanille.",
+      detailedDescription: "Crêpes légèrement sucrées avec une touche de vanille naturelle pour plus de parfum. Servies chaudes pour plus de plaisir.",
+      variants: [
+        { quantity: "10 crêpes", price: "2000 FCFA" }
+      ]
     },
     {
       id: 7,
-      name: "Mini-pizza",
-      category: "Viennoiseries et autres",
-      price: "15000 FCFA",
-      images: ["/minipizza.jpg", "/minipizza1.jpg?"],
-      description: "Mini-pizzas savoureuses avec une pâte croustillante et des garnitures variées.",
-      detailedDescription:
-        "Nos mini-pizzas sont préparées avec une pâte fine et croustillante, garnies de sauce tomate maison, de fromage de qualité et d'ingrédients frais. Parfaites pour l'apéritif ou un repas léger.",
-      ingredients: ["Pâte à pizza", "Sauce tomate", "Fromage", "Garnitures variées", "Herbes de Provence"],
-      allergens: ["Gluten", "Lait"],
-      weight: "400g",
-      servings: "6-8 pièces",
+      name: "Crêpes au chocolat",
+      category: "Crêpes Sucrées",
+      images: ["/crepechoco.png"],
+      description: "Crêpes garnies de délicieux chocolat fondu.",
+      detailedDescription: "Crêpes garnies de chocolat noir fondant pour les amateurs de chocolat. Un régal pour les papilles.",
+      variants: [
+        { quantity: "10 crêpes", price: "2500 FCFA" }
+      ]
     },
     {
       id: 8,
-      name: "Box personnalisable",
-      category: "Viennoiseries et autres",
-      price: "10500 FCFA",
-      images: ["/box .jpg", "/panier.webp", "/panier2.webp"],
-      description: "Box gourmande personnalisable avec une sélection de nos meilleures pâtisseries.",
-      detailedDescription:
-        "Cette box personnalisable vous permet de composer votre assortiment de pâtisseries selon vos préférences. Idéale pour les cadeaux ou pour découvrir notre gamme de produits. Chaque box est préparée avec soin et présentée dans un emballage élégant.",
-      ingredients: ["Assortiment de pâtisseries", "Emballage personnalisé"],
-      allergens: ["Varie selon la sélection"],
-      weight: "Variable",
-      servings: "4-6 personnes",
+      name: "Crêpes marbrées au chocolat",
+      category: "Crêpes Sucrées",
+      images: ["/marbre.jpg"],
+      description: "Crêpes avec un effet marbré au chocolat.",
+      detailedDescription: "Crêpes avec un effet marbré obtenu en mélangeant délicatement la pâte nature et la pâte au chocolat. Un plaisir visuel et gustatif.",
+      variants: [
+        { quantity: "10 crêpes", price: "3000 FCFA" }
+      ]
     },
+
+    // Crêpes Salées
     {
       id: 9,
-      name: "Gâteau au chocolat",
-      category: "Gâteaux",
-      price: "7500 FCFA",
-      images: ["/anniv.jpg", "/noir.jpg", "/placeholder.svg?height=400&width=400"],
-      description: "Gâteau au chocolat riche et intense, parfait pour les anniversaires et célébrations.",
-      detailedDescription:
-        "Ce gâteau au chocolat est préparé avec du chocolat noir de première qualité. Sa texture moelleuse et son goût intense en font le dessert idéal pour les anniversaires et toutes les occasions spéciales. Décoré avec soin pour un rendu visuel parfait.",
-      ingredients: ["Chocolat noir", "Farine", "Œufs", "Sucre", "Beurre", "Cacao"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "450g",
-      servings: "6-8 personnes",
+      name: "Crêpes à la viande hachée",
+      category: "Crêpes Salées",
+      images: ["/viande.webp"],
+      description: "Crêpes salées garnies de viande hachée assaisonnée.",
+      detailedDescription: "Crêpes salées garnies de viande hachée finement assaisonnée. Parfait pour un repas complet et savoureux.",
+      variants: [
+        { quantity: "10 crêpes", price: "9000 FCFA" }
+      ]
     },
     {
       id: 10,
-      name: "Crêpe nature",
-      category: "Crêpes",
-      price: "9500 FCFA",
-      images: ["/crepeblanc.png", "/placeholder.svg?height=400&width=400", "/placeholder.svg?height=400&width=400"],
-      description: "Crêpes nature légères et moelleuses, parfaites pour le petit-déjeuner ou le goûter.",
-      detailedDescription:
-        "Nos crêpes nature sont préparées avec une pâte traditionnelle fine et légère. Leur texture moelleuse et leur goût authentique en font un classique incontournable, parfait pour accompagner vos confitures préférées ou simplement dégusté nature.",
-      ingredients: ["Farine", "Œufs", "Lait", "Beurre", "Sucre", "Sel"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "250g",
-      servings: "3-4 pièces",
+      name: "Crêpes jambon fromage",
+      category: "Crêpes Salées",
+      images: ["/jambon.jpg"],
+      description: "Crêpes garnies de jambon et fromage fondant.",
+      detailedDescription: "Crêpes garnies de jambon de qualité et de fromage fondant. Un classique revisité pour votre plus grand plaisir.",
+      variants: [
+        { quantity: "10 crêpes", price: "9000 FCFA" }
+      ]
     },
+
+    // Samoussas
     {
       id: 11,
-      name: "Croques monsieur",
-      category: "Viennoiseries et autres",
-      price: "12000 FCFA",
-      images: ["/cro.jpg", "/cro2.jpg"],
-      description: "Croques monsieur croustillants, garnis de jambon et de fromage fondant.",
-      detailedDescription:
-        "Nos croques monsieur sont préparés avec du pain de mie doré à la perfection, garni de jambon savoureux et de fromage fondant. Parfaits pour un déjeuner rapide ou un dîner léger, ils sont toujours appréciés.",
-      ingredients: ["Farine de blé", "Jambon", "Fromage", "Beurre", "Œufs", "Lait"],
-      allergens: ["Gluten", "Œufs", "Lait"],
-      weight: "300g",
+      name: "Samoussas viande hachée",
+      category: "Samoussas",
+      images: ["/samoussa1.webp"],
+      description: "Samoussas croustillants à la viande hachée.",
+      detailedDescription: "Samoussas traditionnels garnis de viande hachée finement assaisonnée et enveloppés dans une pâte croustillante.",
+      variants: [
+        { quantity: "5 pièces", price: "3000 FCFA" },
+        { quantity: "10 pièces", price: "6000 FCFA" },
+        { quantity: "20 pièces", price: "12000 FCFA" }
+      ]
     },
- {
-  id: 12,
-  name: "Nems",
-  category: "Viennoiseries et autres",
-  price: "13000 FCFA",
-  images: ["/nems.jpg", "/nems2.jpeg"],
-  description: "Des rouleaux croustillants farcis de légumes et de viande, servis avec une sauce aigre-douce.",
-  detailedDescription: "Ces nems sont des rouleaux croustillants, préparés avec des légumes frais et de la viande, offrant une combinaison parfaite de saveurs. Ils sont généralement servis avec une sauce aigre-douce, ce qui les rend irrésistibles en entrée ou en plat principal.",
-  ingredients: ["Pâte à nems", "Légumes", "Viande", "Sauce aigre-douce"],
-  allergens: ["Gluten", "Viande"],
-  weight: null,
-  
-}
+    {
+      id: 12,
+      name: "Samoussas poulet",
+      category: "Samoussas",
+      images: ["/samoussa.jpg"],
+      description: "Samoussas croustillants au poulet.",
+      detailedDescription: "Samoussas garnis de poulet mariné et épicé, enveloppés dans une pâte fine et croustillante.",
+      variants: [
+        { quantity: "5 pièces", price: "2500 FCFA" },
+        { quantity: "10 pièces", price: "5000 FCFA" },
+        { quantity: "20 pièces", price: "10000 FCFA" }
+      ]
+    },
 
+    // Nems
+    {
+      id: 13,
+      name: "Nems viande hachée",
+      category: "Nems",
+      images: ["/nems2.jpg"],
+      description: "Nems croustillants à la viande hachée.",
+      detailedDescription: "Nems traditionnels garnis de viande hachée, légumes et vermicelles, servis avec une sauce aigre-douce.",
+      variants: [
+        { quantity: "10 pièces", price: "6000 FCFA" }
+      ]
+    },
+    {
+      id: 14,
+      name: "Nems au poulet",
+      category: "Nems",
+      images: ["/nems3.webp"],
+      description: "Nems croustillants au poulet.",
+      detailedDescription: "Nems garnis de poulet mariné, légumes croquants et vermicelles, parfaits pour l'apéritif ou en plat principal.",
+      variants: [
+        { quantity: "10 pièces", price: "5000 FCFA" }
+      ]
+    },
+
+    // Pastels
+    {
+      id: 15,
+      name: "Pastels (poulet/viande/jambon)",
+      category: "Pastels",
+      images: ["/pastels.jpg"],
+      description: "Pastels africains croustillants avec différents garnitures.",
+      detailedDescription: "Pastels traditionnels africains garnis au choix de poulet, viande hachée ou jambon, avec une pâte croustillante à l'extérieur et moelleuse à l'intérieur.",
+      variants: [
+        { quantity: "10 pièces", price: "3000 FCFA" },
+        { quantity: "20 pièces", price: "6000 FCFA" }
+      ]
+    },
+
+    // Mini-Burgers
+    {
+      id: 16,
+      name: "Mini-burgers",
+      category: "Mini-Burgers",
+      images: ["/minib.jpg"],
+      description: "Mini-burgers gourmands avec garnitures variées.",
+      detailedDescription: "Mini-burgers préparés avec des pains briochés moelleux et garnis selon vos préférences. Parfaits pour les buffets et événements.",
+      variants: [
+        { quantity: "8 pièces", price: "7000 FCFA" },
+        { quantity: "12 pièces", price: "10000 FCFA" },
+        { quantity: "20 pièces", price: "15000 FCFA" }
+      ]
+    },
+
+    // Mini-Quiches
+    {
+      id: 17,
+      name: "Mini-quiches (poulet/jambon/viande)",
+      category: "Mini-Quiches",
+      images: ["/quiche.jpg"],
+      description: "Mini-quiches savoureuses avec différentes garnitures.",
+      detailedDescription: "Mini-quiches individuelles garnies au choix de poulet, jambon ou viande hachée, avec une pâte feuilletée et une garniture crémeuse.",
+      variants: [
+        { quantity: "8 pièces", price: "7000 FCFA" },
+        { quantity: "12 pièces", price: "10000 FCFA" },
+        { quantity: "20 pièces", price: "15000 FCFA" }
+      ]
+    },
+
+    // Croques Monsieur
+    {
+      id: 18,
+      name: "Croques monsieur",
+      category: "Croques Monsieur",
+      images: ["/cro.jpg"],
+      description: "Croques monsieur classiques jambon-fromage.",
+      detailedDescription: "Croques monsieur préparés avec du pain de mie frais, du jambon de qualité et du fromage fondant. Grillés à la perfection.",
+      variants: [
+        { quantity: "5 pièces", price: "7000 FCFA" },
+        { quantity: "10 pièces", price: "10000 FCFA" },
+        { quantity: "15 pièces", price: "15000 FCFA" }
+      ]
+    },
+
+    // Roulettes de Saucisse
+    {
+      id: 19,
+      name: "Roulettes de Saucisse",
+      category: "Roulettes de Saucisse",
+      images: ["/saucisse.jpg"],
+      description: "Roulettes de saucisse enrobées de pâte, croustillantes à l'extérieur et moelleuses à l'intérieur.",
+      detailedDescription: "Roulettes de saucisse enrobées d'une pâte fine et dorée. Parfaites pour l'apéritif ou comme encas.",
+      variants: [
+        { quantity: "10 pièces", price: "4000 FCFA" },
+        { quantity: "15 pièces", price: "6000 FCFA" },
+        { quantity: "20 pièces", price: "8000 FCFA" }
+      ]
+    },
+
+    // Croquettes
+    {
+      id: 20,
+      name: "Croquettes",
+      category: "Croquettes",
+      images: ["/croquettes.jpg"],
+      description: "Croquettes croustillantes servies dans un pot pratique.",
+      detailedDescription: "Croquettes maison préparées avec des ingrédients frais et servies dans un pot pratique pour le partage. Extérieur croustillant, intérieur moelleux.",
+      variants: [
+        { quantity: "1 pot", price: "2000 FCFA" }
+      ]
+    }
   ]
 
-  // Images similaires pour chaque catégorie
+  // Images similaires pour chaque catégorie (mises à jour avec les bons chemins)
   const similarImages = {
-    Gâteaux: [
-      "/gateaux.jpg",
-      "/doris.png",
-      "/gateaux4.jpg",
-    ],
-    Crêpes: ["/crepes.png", "/crepeblanc.png?height=200&width=200"],
-    "Viennoiseries et autres": [
-      "/minib.jpg",
-      "/minipizza1.jpg",
-      "/pastels.jpg",
-      "/donnut.jpg",
-    ],
+    "Gâteaux": ["/gateaux.jpg", "/gateaux2.jpg", "/orange.jpg", "/ananas.jpg"],
+    "Crêpes Sucrées": ["/crepeblanc.png", "/sucre.webp", "/crepechoco.png", "/marbre.jpg"],
+    "Crêpes Salées": ["/viande.webp", "/jambon.jpg"],
+    "Samoussas": ["/samoussa1.webp", "/samoussa.jpg"],
+    "Nems": ["/nems2.jpg", "/nems3.webp"],
+    "Pastels": ["/pastels1.webp"],
+    "Mini-Burgers": ["/minib.jpg"],
+    "Mini-Quiches": ["/quiche1.webp"],
+    "Croques Monsieur": ["/cro2.jpg"],
+    "Roulettes de Saucisse": ["/saucisse1.jpg"],
+    "Croquettes": ["/croquettes.jpg"]
   }
 
   const product = products.find((p) => p.id === Number.parseInt(id || "0"))
@@ -217,10 +303,10 @@ const ProductDetail = () => {
     )
   }
 
-  const handleWhatsAppOrder = () => {
+  const handleWhatsAppOrder = (selectedVariant: string) => {
     const phoneNumber = "24174504103"
     const productImage = product.images[0]
-    const message = `Bonjour ! Je souhaite commander :\n\n🍰 ${product.name}\n💰 Prix: ${product.price}\n📦 Poids: ${product.weight}\n👥 Pouvez-vous me confirmer la disponibilité et les modalités de commande ?\n\nMerci !`
+    const message = `Bonjour ! Je souhaite commander :\n\n🍰 ${product.name} (${selectedVariant})\n💰 Prix: ${product.variants.find(v => v.quantity === selectedVariant)?.price || product.variants[0].price}\n📦 Pouvez-vous me confirmer la disponibilité et les modalités de commande ?\n\nMerci !`
     const encodedMessage = encodeURIComponent(message)
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
     window.open(whatsappUrl, "_blank")
@@ -240,6 +326,7 @@ const ProductDetail = () => {
   }
 
   const categoryImages = similarImages[product.category as keyof typeof similarImages] || []
+  const [selectedVariant, setSelectedVariant] = useState(product.variants[0].quantity)
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -293,12 +380,31 @@ const ProductDetail = () => {
                 </span>
                 <h1 className="text-3xl font-bold text-gray-800 mb-2">{product.name}</h1>
                 <p className="text-xl text-gray-600 mb-4">{product.description}</p>
-                <div className="text-4xl font-bold text-purple-600 mb-6">{product.price}</div>
+                
+                {/* Variantes de quantité et prix */}
+                <div className="mb-6">
+                  <h3 className="font-semibold text-gray-800 mb-3">Options disponibles :</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {product.variants.map((variant, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setSelectedVariant(variant.quantity)}
+                        className={`px-4 py-2 rounded-full border transition-all ${
+                          selectedVariant === variant.quantity
+                            ? "bg-purple-600 text-white border-purple-600"
+                            : "bg-white text-gray-800 border-gray-300 hover:border-purple-400"
+                        }`}
+                      >
+                        {variant.quantity} - {variant.price}
+                      </button>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <div className="flex gap-3">
                 <Button
-                  onClick={handleWhatsAppOrder}
+                  onClick={() => handleWhatsAppOrder(selectedVariant)}
                   className="flex-1 bg-gradient-to-r from-purple-600 to-pink-500 text-white hover:shadow-lg transition-all"
                 >
                   <ShoppingCart size={20} className="mr-2" />
@@ -317,39 +423,6 @@ const ProductDetail = () => {
                   <h3 className="font-semibold text-gray-800 mb-2">Description détaillée</h3>
                   <p className="text-gray-600 leading-relaxed">{product.detailedDescription}</p>
                 </div>
-
-                <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 rounded-lg">
-                  <div>
-                    <span className="font-semibold text-gray-800 block">Poids:</span>
-                    <p className="text-gray-600">{product.weight}</p>
-                  </div>
-                  <div>
-                    <span className="font-semibold text-gray-800 block">Portions:</span>
-                    <p className="text-gray-600">{product.servings}</p>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Ingrédients</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {product.ingredients.map((ingredient, index) => (
-                      <span key={index} className="bg-gray-100 px-3 py-1 rounded-full text-sm">
-                        {ingredient}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Allergènes</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {product.allergens.map((allergen, index) => (
-                      <span key={index} className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-medium">
-                        ⚠️ {allergen}
-                      </span>
-                    ))}
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -363,6 +436,12 @@ const ProductDetail = () => {
                   <div
                     key={index}
                     className="aspect-square rounded-lg overflow-hidden bg-gray-100 hover:shadow-lg transition-shadow cursor-pointer"
+                    onClick={() => {
+                      const similarProduct = products.find(p => p.images.includes(image))
+                      if (similarProduct) {
+                        navigate(`/product/${similarProduct.id}`)
+                      }
+                    }}
                   >
                     <img
                       src={image || "/placeholder.svg"}

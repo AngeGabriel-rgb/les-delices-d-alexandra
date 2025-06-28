@@ -10,129 +10,185 @@ const Gallery = () => {
   const [activeFilter, setActiveFilter] = useState("Tous")
 
   const products = [
+    // Gâteaux
     {
       id: 1,
-      name: "Gâteau à la crème",
+      name: "Gâteau au yaourt",
       category: "Gâteaux",
-      price: "12500 FCFA",
-      image: "/creme4.jpg",
-      description: "Un délice moelleux, recouvert d'une onctueuse couche de crème fouettée.",
-      weight: "500g",
-      servings: "6-8 personnes",
+      image: "/gateaux2.jpg",
+      description: "Gâteau moelleux à base de yaourt nature, parfait pour le goûter.",
     },
     {
       id: 2,
-      name: "Gâteau nature",
+      name: "Gâteau à l'orange",
       category: "Gâteaux",
-      price: "9500 FCFA",
-      image: "/gateaux2.jpg",
-      description: "Un gâteau simple et savoureux, parfait pour accompagner votre thé ou café.",
-      weight: "400g",
-      servings: "4-6 personnes",
+      image: "/orange.jpg",
+      description: "Gâteau parfumé à l'orange, léger et rafraîchissant.",
     },
     {
       id: 3,
-      name: "Crêpes",
-      category: "Crêpes",
-      price: "6500 FCFA",
-      image: "/crepeschoco.jpg",
-      description: "Crêpes délicates au chocolat noir, fines et savoureuses.",
-      weight: "300g",
-   
+      name: "Gâteau au chocolat",
+      category: "Gâteaux",
+      image: "/gateaux.jpg",
+      description: "Gâteau riche au chocolat avec option noix de coco ou raisins secs.",
     },
     {
       id: 4,
-      name: "Mini-burger",
-      category: "Viennoiseries et autres",
-      price: "5500 FCFA",
-      image: "/burger.png",
-      description: "Délicieux mini-burgers parfaits pour l'apéritif ou comme collation gourmande.",
-      weight: "250g",
-    
+      name: "Gâteau à l'ananas",
+      category: "Gâteaux",
+      image: "/ananas.jpg",
+      description: "Gâteau moelleux avec morceaux d'ananas frais.",
     },
+
+    // Crêpes Sucrées
     {
       id: 5,
-      name: "Croquettes en pot",
-      category: "Viennoiseries et autres",
-      price: "3500 FCFA",
-      image: "/croquettes.jpg",
-      description: "Croquettes croustillantes servies dans un pot pratique, parfaites à partager.",
-      weight: "200g",
-    
+      name: "Crêpes nature",
+      category: "Crêpes Sucrées",
+      image: "/crepeblanc.png",
+      description: "Crêpes nature légères et moelleuses.",
     },
     {
       id: 6,
-      name: "Donuts",
-      category: "Viennoiseries et autres",
-      price: "8500 FCFA",
-      image: "/donnut.jpg",
-      description: "Donuts moelleux et colorés, glacés avec différents parfums pour tous les goûts.",
-      weight: "300g",
-     
+      name: "Crêpes sucrées",
+      category: "Crêpes Sucrées",
+      image: "/sucre.webp",
+      description: "Crêpes légèrement sucrées avec une touche de vanille.",
     },
     {
       id: 7,
-      name: "Mini-pizza",
-      category: "Viennoiseries et autres",
-      price: "15000 FCFA",
-      image: "/minipizza.jpg",
-      description: "Mini-pizzas savoureuses avec une pâte croustillante et des garnitures variées.",
-      weight: "400g",
-    
+      name: "Crêpes au chocolat",
+      category: "Crêpes Sucrées",
+      image: "/crepechoco.png",
+      description: "Crêpes garnies de délicieux chocolat fondu.",
     },
     {
       id: 8,
-      name: "Box personnalisable",
-      category: "Viennoiseries et autres",
-      price: "10500 FCFA",
-      image: "/box .jpg",
-      description: "Box gourmande personnalisable avec une sélection de nos meilleures pâtisseries.",
-      weight: "Variable",
-    
+      name: "Crêpes marbrées au chocolat",
+      category: "Crêpes Sucrées",
+      image: "/marbre.jpg",
+      description: "Crêpes avec un effet marbré au chocolat.",
     },
+
+    // Crêpes Salées
     {
       id: 9,
-      name: "Gâteau au chocolat",
-      category: "Gâteaux",
-      price: "7500 FCFA",
-      image: "/anniv.jpg",
-      description: "Gâteau au chocolat riche et intense, parfait pour les anniversaires et célébrations.",
-      weight: "450g",
-   
+      name: "Crêpes à la viande hachée",
+      category: "Crêpes Salées",
+      image: "/viande.webp",
+      description: "Crêpes salées garnies de viande hachée assaisonnée.",
     },
     {
       id: 10,
-      name: "Crêpe nature",
-      category: "Crêpes",
-      price: "9500 FCFA",
-      image: "/crepeblanc.png",
-      description: "Crêpes nature légères et moelleuses, parfaites pour le petit-déjeuner ou le goûter.",
-      weight: "250g",
-   
+      name: "Crêpes jambon fromage",
+      category: "Crêpes Salées",
+      image: "/jambon.jpg",
+      description: "Crêpes garnies de jambon et fromage fondant.",
     },
-      {
+
+    // Samoussas
+    {
       id: 11,
-      name: "Croque Monsieur",
-      category: "Viennoiseries et autres",
-      price: "9500 FCFA",
-      image: "/cro.jpg",
-      description: "Un classique français, le croque monsieur est un sandwich chaud garni de jambon et de fromage fondu.",
-      weight: null,
-   
+      name: "Samoussas viande hachée",
+      category: "Samoussas",
+      image: "/samoussa1.webp",
+      description: "Samoussas croustillants à la viande hachée.",
     },
-      {
+    {
       id: 12,
-      name: "Nems",
-      category: "Viennoiseries et autres",
-      price: "9500 FCFA",
-      image: "/nems.jpg",
-      description: "Des rouleaux croustillants farcis de légumes et de viande, servis avec une sauce aigre-douce.",
-      weight: null,
-   
+      name: "Samoussas poulet",
+      category: "Samoussas",
+      image: "/samoussa.jpg",
+      description: "Samoussas croustillants au poulet.",
     },
+
+    // Nems
+    {
+      id: 13,
+      name: "Nems viande hachée",
+      category: "Nems",
+      image: "/nems2.jpg",
+      description: "Nems croustillants à la viande hachée.",
+    },
+    {
+      id: 14,
+      name: "Nems au poulet",
+      category: "Nems",
+      image: "/nems3.webp",
+      description: "Nems croustillants au poulet.",
+    },
+
+    // Pastels
+    {
+      id: 15,
+      name: "Pastels (poulet/viande/jambon)",
+      category: "Pastels",
+      image: "/pastels.jpg",
+      description: "Pastels africains croustillants avec différents garnitures.",
+    },
+
+    // Mini-Burgers
+    {
+      id: 16,
+      name: "Mini-burgers",
+      category: "Mini-Burgers",
+      image: "/minib.jpg",
+      description: "Mini-burgers gourmands avec garnitures variées.",
+    },
+
+    // Mini-Quiches
+    {
+      id: 17,
+      name: "Mini-quiches (poulet/jambon/viande)",
+      category: "Mini-Quiches",
+      image: "/quiche.jpg",
+      description: "Mini-quiches savoureuses avec différentes garnitures.",
+    },
+
+    // Croques Monsieur
+    {
+      id: 18,
+      name: "Croques monsieur",
+      category: "Croques Monsieur",
+      image: "/cro.jpg",
+      description: "Croques monsieur classiques jambon-fromage.",
+    },
+
+    // Roulettes de Saucisse
+    {
+      id: 19,
+      name: "Roulettes de Saucisse",
+      category: "Roulettes de Saucisse",
+      image: "/saucisse.jpg",
+      description: "Roulettes de saucisse enrobées de pâte, croustillantes à l'extérieur et moelleuses à l'intérieur.",
+    },
+     {
+      id: 20,
+      name: "Croquettes",
+      category: "Croquettes",
+      image: "/croquettes.jpg",
+      description: "Croquettes croustillantes servies dans un pot pratique.",
+    },
+  
   ]
 
-  const categories = ["Tous", "Gâteaux", "Crêpes", "Viennoiseries et autres"]
+  const categories = [
+    "Tous",
+    "Gâteaux",
+    "Crêpes Sucrées",
+    "Crêpes Salées",
+    "Samoussas",
+    "Nems",
+    "Pastels",
+    "Mini-Burgers",
+    "Mini-Quiches",
+    "Croques Monsieur",
+    "Cupcakes",
+    "Croquettes",
+    "Pain de Mie",
+    "Brochettes",
+    "Roulettes de Saucisse"
+  ]
 
   const filteredProducts =
     activeFilter === "Tous" ? products : products.filter((product) => product.category === activeFilter)
@@ -150,10 +206,31 @@ const Gallery = () => {
     switch (category) {
       case "Gâteaux":
         return "🎂"
-      case "Crêpes":
+      case "Crêpes Sucrées":
+      case "Crêpes Salées":
         return "🥞"
-      case "Viennoiseries et autres":
-        return "🥐"
+      case "Samoussas":
+        return "🌯"
+      case "Nems":
+        return "🥢"
+      case "Pastels":
+        return "🥟"
+      case "Mini-Burgers":
+        return "🍔"
+      case "Mini-Quiches":
+        return "🥧"
+      case "Croques Monsieur":
+        return "🥪"
+      case "Cupcakes":
+        return "🧁"
+      case "Croquettes":
+        return "🍘"
+      case "Pain de Mie":
+        return "🍞"
+      case "Brochettes":
+        return "🍢"
+      case "Roulettes de Saucisse":
+        return "🌭"
       default:
         return "🍽️"
     }
@@ -167,18 +244,8 @@ const Gallery = () => {
             Notre Collection Gourmande
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Découvrez notre sélection de pâtisseries artisanales faites avec amour et des ingrédients de qualité
+            Découvrez notre sélection de pâtisseries et snacks artisanaux faits avec amour et des ingrédients de qualité
           </p>
-          <div className="mt-6 flex justify-center items-center gap-4 text-sm text-gray-500">
-            <span className="flex items-center gap-1">
-              <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-              Produits frais du jour
-            </span>
-            <span className="flex items-center gap-1">
-              <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-              Livraison disponible
-            </span>
-          </div>
         </div>
 
         {/* Filtres améliorés */}
@@ -267,16 +334,6 @@ const Gallery = () => {
                     <Eye size={18} className="text-purple-600" />
                   </button>
                 </div>
-
-                {/* Informations en overlay */}
-                <div className="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex justify-between items-center">
-                    <div className="text-sm">
-                      <div className="font-medium">{product.weight}</div>
-                      <div className="text-xs opacity-90">{product.servings}</div>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Contenu de la carte */}
@@ -286,14 +343,7 @@ const Gallery = () => {
                 </h3>
                 <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-2">{product.description}</p>
 
-                {/* Informations produit */}
-                <div className="flex justify-between items-center mb-4 text-xs text-gray-500">
-                  <span className="bg-gray-100 px-2 py-1 rounded">{product.weight}</span>
-                  <span className="bg-gray-100 px-2 py-1 rounded">{product.servings}</span>
-                </div>
-
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-purple-600">{product.price}</span>
+                <div className="flex justify-center">
                   <button
                     onClick={() => handleProductClick(product.id)}
                     className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 rounded-full hover:shadow-lg transition-all transform hover:scale-105"
@@ -302,13 +352,6 @@ const Gallery = () => {
                   </button>
                 </div>
               </div>
-
-              {/* Indicateur de nouveauté pour certains produits */}
-              {[1, 8, 9].includes(product.id) && (
-                <div className="absolute top-4 right-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-pulse">
-                  NOUVEAU
-                </div>
-              )}
             </div>
           ))}
         </div>
